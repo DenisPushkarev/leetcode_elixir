@@ -14,7 +14,7 @@ defmodule Solution124Test do
   end
 
   test "case 3" do
-    tree = Tree.build_tree([2,-1,-2])
+    tree = Tree.build_tree([2, -1, -2])
     assert Solution124.max_path_sum(tree) == 2
   end
 end

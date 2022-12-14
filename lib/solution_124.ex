@@ -11,9 +11,11 @@ defmodule Solution124 do
   defp dfs(agent, node) do
     left = max(dfs(agent, node.left), 0)
     right = max(dfs(agent, node.right), 0)
+
     Agent.update(agent, fn value ->
       max(value, node.val + left + right)
     end)
+
     node.val + max(left, right)
   end
 end
