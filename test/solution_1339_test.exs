@@ -3,7 +3,7 @@ defmodule Solution1339Test do
   doctest Tree
 
   test "case1" do
-    tree = Tree.build_tree([1, 2, 3, 4, 5, 6]) |> IO.inspect()
+    tree = Tree.build_tree([1, 2, 3, 4, 5, 6])
     assert Solution1339.max_product(tree) == 110
   end
 
