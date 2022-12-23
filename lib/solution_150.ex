@@ -15,18 +15,25 @@ defmodule Solution150 do
 
       number ->
         {n, _} = Integer.parse(number)
-        helper([ n | stack], rest)
+        helper([n | stack], rest)
     end
   end
 
   defp calc(a, b, op) do
     # IO.inspect("#{a} #{op} #{b}")
     case op do
-      "+" -> a + b
-      "-" -> a - b
-      "*" -> a * b
-      "/" -> n = a / b
-      if n>0, do: floor(n), else: ceil(n)
+      "+" ->
+        a + b
+
+      "-" ->
+        a - b
+
+      "*" ->
+        a * b
+
+      "/" ->
+        n = a / b
+        if n > 0, do: floor(n), else: ceil(n)
     end
   end
 end

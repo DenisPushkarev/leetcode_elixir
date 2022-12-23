@@ -1,10 +1,11 @@
 defmodule Solution232 do
   @spec init_() :: any
   def init_() do
-     case Process.whereis(pid()) do
+    case Process.whereis(pid()) do
       id when is_pid(id) -> Agent.stop(id)
       _ -> :ok
-     end
+    end
+
     Agent.start_link(fn -> {[], []} end, name: pid())
   end
 
@@ -16,8 +17,11 @@ defmodule Solution232 do
           {_, [_ | _]} ->
             {stack2, stack1} = swap(stack2, stack1)
             {stack1, stack2}
-          state -> state
+
+          state ->
+            state
         end
+
       {x, {[x | stack1], stack2}}
     end)
   end
@@ -34,7 +38,6 @@ defmodule Solution232 do
       [val | stack2] = stack2
       {val, {stack1, stack2}}
     end)
-
   end
 
   @spec peek() :: integer
@@ -45,19 +48,21 @@ defmodule Solution232 do
           {[_ | _], _} -> swap(stack1, stack2)
           state -> state
         end
-        {hd(stack2), {stack1, stack2}}
-      end)
+
+      {hd(stack2), {stack1, stack2}}
+    end)
   end
 
   @spec empty() :: boolean
   def empty() do
-    Agent.get(pid(), fn {[], []} -> true
-    _ -> false
+    Agent.get(pid(), fn
+      {[], []} -> true
+      _ -> false
     end)
   end
 
   defp pid do
-    :erlang.pid_to_list(self()) |> List.to_string() |> String.to_atom
+    :erlang.pid_to_list(self()) |> List.to_string() |> String.to_atom()
   end
 
   defp swap([], stack2), do: {[], stack2}

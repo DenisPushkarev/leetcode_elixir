@@ -2,7 +2,6 @@ defmodule Solution1339Test do
   use ExUnit.Case
   doctest Tree
 
-
   @tag :skip
   test "case1" do
     tree = Tree.build_tree([1, 2, 3, 4, 5, 6])

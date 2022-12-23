@@ -6,12 +6,12 @@ defmodule Solution1143_ets do
     hash = :ets.new(:hash, [:set, :private])
 
     Enum.reduce(0..(len1 * len2 - 1), {0, 0, hash}, fn _, {i, j, hash} ->
-        if String.at(str1, i) == String.at(str2, j) do
-          put(hash, i, j, 1 + get(hash, i - 1, j - 1))
-        else
-          max_val = max(get(hash, i - 1, j), get(hash, i, j - 1))
-          put(hash, i, j, max_val)
-        end
+      if String.at(str1, i) == String.at(str2, j) do
+        put(hash, i, j, 1 + get(hash, i - 1, j - 1))
+      else
+        max_val = max(get(hash, i - 1, j), get(hash, i, j - 1))
+        put(hash, i, j, max_val)
+      end
 
       cond do
         i == len1 - 1 && j == len2 - 1 -> {i, j, hash}

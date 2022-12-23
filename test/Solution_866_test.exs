@@ -24,8 +24,6 @@ defmodule Solution866Test do
     # - + 4 + 4
     #     5 5 3
 
-
-
-    assert false == Solution.possible_bipartition(5, [[1,2],[3,4],[4,5],[3,5]])
+    assert false == Solution.possible_bipartition(5, [[1, 2], [3, 4], [4, 5], [3, 5]])
   end
 end

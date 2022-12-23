@@ -1,5 +1,5 @@
 defmodule Solution232Test do
-	use ExUnit.Case, async: false
+  use ExUnit.Case, async: false
 
   test "case 1" do
     Solution232.init_()
@@ -16,7 +16,7 @@ defmodule Solution232Test do
   end
 
   test "case 17" do
-    ["MyQueue","push","push","push","push","pop","push","pop","pop","pop","pop"]
+    ["MyQueue", "push", "push", "push", "push", "pop", "push", "pop", "pop", "pop", "pop"]
     Solution232.init_()
     Solution232.push(1)
     Solution232.push(2)

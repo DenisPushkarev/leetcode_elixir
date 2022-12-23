@@ -11,11 +11,12 @@ defmodule Solution841 do
 
   defp open_room(server, current_room, total) do
     {room, total_visited} = visit(server, current_room)
-    if (total_visited == total) do
+
+    if total_visited == total do
       true
     else
       Enum.each(room, fn key ->
-        if (!visited?(server, key)) do
+        if !visited?(server, key) do
           open_room(server, key, total)
         else
           false
@@ -54,7 +55,7 @@ defmodule Solution841 do
 
   @impl true
   def handle_call({:visited?, n}, _from, {_, visited} = state) do
-    {:reply, Enum.any?(visited, & &1 == n), state}
+    {:reply, Enum.any?(visited, &(&1 == n)), state}
   end
 
   @impl true
@@ -67,5 +68,4 @@ defmodule Solution841 do
     IO.inspect(state)
     {:noreply, state}
   end
-
 end
